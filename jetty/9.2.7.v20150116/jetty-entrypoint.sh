@@ -2,7 +2,7 @@
 set -e
 
 run_jetty() {
-    if [ $# -eq 0 ] && { ! find $JETTY_BASE -mindepth 1 -print -quit | grep -q .; }; then
+    if [ $# -eq 0 ] && [ ! -f $JETTY_BASE/start.ini ]; then
         java -jar $JETTY_HOME/start.jar --add-to-start=http,deploy,jsp,jstl,annotations,logging jetty.base=$JETTY_BASE && \
         java -jar $JETTY_HOME/start.jar --add-to-startd=http jetty.base=$JETTY_BASE
     fi
