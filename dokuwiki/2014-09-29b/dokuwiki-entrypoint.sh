@@ -2,7 +2,7 @@
 set -e
 
 run_dokuwiki() {
-    chown -R www:www /var/www
+    chown -R www:www /var/www /var/lib/nginx
 
     exec /usr/bin/supervisord -c /etc/supervisord.conf
 }
