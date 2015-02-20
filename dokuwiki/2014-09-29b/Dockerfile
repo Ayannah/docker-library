@@ -16,8 +16,7 @@ RUN groupadd -g 1000 www && \
 COPY etc/ /etc/
 COPY dokuwiki-entrypoint.sh /
 
-RUN echo "cgi.fix_pathinfo = 0;" >> /etc/php.ini && \
-    nginx -t
+RUN nginx -t
 
 EXPOSE 80
 
