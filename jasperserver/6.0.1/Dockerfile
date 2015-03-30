@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y vim && rm -rf /var/lib/apt/lists/* && \
     mv /usr/src/jasperreports-server-cp-6.0.1-bin /usr/src/jasperreports-server && \
     rm -rf /tmp/*
 
-ENV CATALINA_OPTS "-Xmx1G -XX:MaxPermSize=256m -XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC -XX:+CMSIncrementalMode -XX:+CMSIncrementalPacing -XX:+CMSParallelRemarkEnabled -XX:+UseCompressedOops -XX:+UseCMSInitiatingOccupancyOnly"
+ENV CATALINA_OPTS="-Xmx512m -XX:MaxPermSize=256m -XX:+UseBiasedLocking -XX:BiasedLockingStartupDelay=0 -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+DisableExplicitGC -XX:+CMSIncrementalMode -XX:+CMSIncrementalPacing -XX:+CMSParallelRemarkEnabled -XX:+UseCompressedOops -XX:+UseCMSInitiatingOccupancyOnly"
 
 COPY entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]
