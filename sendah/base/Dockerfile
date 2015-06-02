@@ -28,8 +28,6 @@ RUN yum install -y epel-release && \
     yum clean all -y && \
     rm -rf /var/cache/yum/* /tmp/*
 
-RUN groupadd -g 1000 noreply && \
-    useradd -g noreply -u 1000 -r -M noreply
 
 COPY etc /etc/
 
