@@ -1,0 +1,13 @@
+[gammu]
+port=/dev/mobile
+connection = at115200
+synchronizetime = yes
+
+[smsd]
+Service=null
+RunOnReceive=/sms.sh
+LogFile=/var/log/gammu.log
+InboxPath=/var/spool/sms/inbox/
+OutboxPath=/var/spool/sms/outbox/
+SentSMSPath=/var/spool/sms/sent/
+ErrorSMSPath=/var/spool/sms/error/
