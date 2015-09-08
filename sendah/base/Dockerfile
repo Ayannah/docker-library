@@ -20,6 +20,7 @@ RUN yum install -y epel-release && \
         php-pear \
         php-pecl-jsonc \
         php-pecl-zip \
+        php-pecl-uuid \
         php-process \
         php-xml \
         git \
