@@ -13,6 +13,14 @@ RUN apt-get update && apt-get install -y curl \
     curl \
     llvm && \
   rm -rf /var/lib/apt/lists/*
+
+ENV ANDROID_SDK_VERSION r24.3.4
+ENV ANDROID_HOME /opt/android-sdk-linux
+ENV PATH $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
+RUN mkdir -p $ANDROID_HOME && \
+    curl http://dl.google.com/android/android-sdk_$ANDROID_SDK_VERSION-linux.tgz | tar xzf - -C $ANDROID_HOME --strip-components=1
+
 RUN mkdir /var/run/sshd
 
 RUN useradd jenkins
