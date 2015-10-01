@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y curl \
         libsqlite3-dev \
         wget \
         curl \
+        thrift-compiler \
+        libpq-dev \
         llvm && \
     rm -rf /var/lib/apt/lists/*
 
