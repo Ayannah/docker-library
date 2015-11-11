@@ -17,12 +17,13 @@ RUN curl -SL http://dl.cihar.com/gammu/releases/gammu-1.36.3.tar.gz | tar xzvf -
     make install && \
     ln -s /usr/local/lib64/libGammu.so.7 /usr/lib64/libGammu.so.7 && \
     ln -s /usr/local/lib64/libgsmsd.so.7 /usr/lib64/libgsmsd.so.7 && \
-    mkdir -p /var/spool/sms/{inbox,outbox,sent,error} && \
     cd / && \
     rm -rf /tmp/* && \
     PKG_CONFIG_PATH=/usr/local/lib64/pkgconfig/ pip install python-gammu
 
 COPY gammu-smsdrc /etc/gammu-smsdrc
 COPY sms.sh /
+COPY gammu-smsd.sh /
 
-CMD ["gammu-smsd", "--config", "/etc/gammu-smsdrc"]
+ENTRYPOINT ["/gammu-smsd.sh"]
+CMD ["gammu-smsd"]
