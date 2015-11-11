@@ -6,7 +6,7 @@ synchronizetime = yes
 [smsd]
 Service=null
 RunOnReceive=/sms.sh
-LogFile=/var/log/gammu.log
+LogFile=/dev/stdout
 InboxPath=/var/spool/sms/inbox/
 OutboxPath=/var/spool/sms/outbox/
 SentSMSPath=/var/spool/sms/sent/
