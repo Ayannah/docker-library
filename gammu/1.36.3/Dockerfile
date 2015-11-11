@@ -25,4 +25,4 @@ RUN curl -SL http://dl.cihar.com/gammu/releases/gammu-1.36.3.tar.gz | tar xzvf -
 COPY gammu-smsdrc /etc/gammu-smsdrc
 COPY sms.sh /
 
-CMD ["gammu-smsd", "--config", "/etc/gammu-smsdrc", "--pid", "/var/run/gammu-smsd.pid"]
+CMD ["gammu-smsd", "--config", "/etc/gammu-smsdrc"]

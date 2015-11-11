@@ -25,4 +25,4 @@ RUN curl -SL http://downloads.sourceforge.net/project/gammu/gammu/1.35.0/gammu-1
 COPY gammu-smsdrc /etc/gammu-smsdrc
 COPY sms.sh /
 
-CMD ["gammu-smsd", "--config", "/etc/gammu-smsdrc", "--pid", "/var/run/gammu-smsd.pid"]
+CMD ["gammu-smsd", "--config", "/etc/gammu-smsdrc"]
