@@ -16,16 +16,10 @@ RUN apt-get update && apt-get install -y curl \
         llvm && \
     rm -rf /var/lib/apt/lists/*
 
-ENV ANDROID_SDK_VERSION r24.3.4
-ENV ANDROID_HOME /opt/android-sdk-linux
-ENV PATH $ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 ENV HOME /home/jenkins
 ENV PYENV_ROOT $HOME/.pyenv
 ENV PATH $PYENV_ROOT/shims:$PYENV_ROOT/bin:$PATH
 ENV DOCKER_COMPOSE_VERSION 1.6.2
-
-RUN mkdir -p $ANDROID_HOME && \
-    curl http://dl.google.com/android/android-sdk_$ANDROID_SDK_VERSION-linux.tgz | tar xzf - -C $ANDROID_HOME --strip-components=1
 
 COPY id_rsa.pub /home/jenkins/.ssh/authorized_keys
 
