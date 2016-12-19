@@ -1,0 +1,5 @@
+six==1.9.0
+thrift==0.9.2
+wheel==0.24.0
+-e git+ssh://git@github.com/Ayannah/core-api.git@develop#egg=ayannahcore-api
+-e git+ssh://git@github.com/Ayannah/core-utils-py.git@develop#egg=ayannahcore-utils
