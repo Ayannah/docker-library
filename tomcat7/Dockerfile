@@ -2,8 +2,9 @@ FROM tomcat:7
 
 ARG MAVEN_VERSION=3.3.9
 ARG OUTPUT_DIR="src/main/java"
+ARG TOMCAT_LIB_DIR="/usr/local/tomcat/lib/"
 
-RUN apt-get update && apt-get install -y git openjdk-7-jdk make
+RUN apt-get update && apt-get install -y git openjdk-7-jdk make thrift-compiler
 
 COPY core-api-key /root/.ssh/id_rsa
 COPY core-api-key.pub /root/.ssh/id_rsa.pub
@@ -23,11 +24,17 @@ RUN wget http://ftp.unicamp.br/pub/apache/maven/maven-3/$MAVEN_VERSION/binaries/
 
 ENV MAVEN_HOME /opt/maven
 
-# Override configs
+# Override configs and Place Built In Jars Needed by Ayannah's legacy Apps
 COPY conf/tomcat-users.xml conf/
+COPY lib/* $TOMCAT_LIB_DIR
+
 
 # Install Core API
-RUN  cd core-api/; mkdir -p src/main/java; GENDIR=$OUTPUT_DIR TARGET=java make; mvn package;
+RUN  cd core-api/ && \
+     mkdir -p $OUTPUT_DIR && \
+     GENDIR=$OUTPUT_DIR TARGET=java make && \
+     mvn package && \
+     cp -rv target/core-api-1.0.jar $TOMCAT_LIB_DIR;
 
 EXPOSE 8080
 
