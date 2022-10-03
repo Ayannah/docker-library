@@ -1,4 +1,4 @@
-FROM tomcat:7
+FROM tomcat:8
 
 ARG MAVEN_VERSION=3.3.9
 ARG OUTPUT_DIR="src/main/java"
