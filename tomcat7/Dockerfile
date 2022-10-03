@@ -4,7 +4,7 @@ ARG MAVEN_VERSION=3.3.9
 ARG OUTPUT_DIR="src/main/java"
 ARG TOMCAT_LIB_DIR="/usr/local/tomcat/lib/"
 
-RUN apt-get update && apt-get install -y git openjdk-7-jdk make thrift-compiler cron
+RUN apt-get update && apt-get install -y git openjdk-8-jdk make thrift-compiler cron
 
 COPY core-api-key /root/.ssh/id_rsa
 COPY core-api-key.pub /root/.ssh/id_rsa.pub
